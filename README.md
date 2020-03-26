@@ -73,7 +73,7 @@ The purpose is to build a very simple single page hybrid web app. This page will
 
 The stack and the tools you should use are:
 
-* react native
+* react
 * node.js
 * node package manager
 * d3.js
