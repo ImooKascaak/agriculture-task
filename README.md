@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Project Description
+
+The purpose is to build a very simple single page hybrid web app. This page will include a dynamic histogram chart that will take values from the attached json file. This file includes 8 different agriculture tasks within an olive cultivation and statistics of co2 emissions for each task. We need the user to be able to see 4 different histograms for each kind of co2 emissions statistics (total, per acre, per olive oil ton, per olive oil kg) where each includes every cultivation task. The user will be able to select which histogram to render. You need to use one histogram that will dynamically draw values according to user selection, not multiple histograms.
+
+The stack and the tools you should use are:
+
+* react native
+* node.js
+* node package manager
+* d3.js
+
+Additionally you are free to use any other package is suitable for your needs. We will evaluate the web version of the application.
