@@ -16,7 +16,7 @@ function createData(data) {
 
 const json_data = createData(Object.values(data));
 
-export default function Orders() {
+export default function Data() {
   return (
     <React.Fragment>
       <Title>Data</Title>

@@ -8,9 +8,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "node-gyp": "^6.1.0",
     "react": "^16.13.1",
+    "react-d3-library": "^1.1.8",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "rebuild": "^0.1.2",
     "recharts": "^1.8.5"
   },
   "scripts": {
@@ -35,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "d3": "^5.15.0",
     "typeface-roboto": "0.0.75"
   }
 }
