@@ -1,48 +1,26 @@
 import AppBar from '@material-ui/core/AppBar';
-// import Badge from '@material-ui/core/Badge';
-// import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-// import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
-// import NotificationsIcon from '@material-ui/icons/Notifications';
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import clsx from 'clsx';
 import React from 'react';
 
-import Histogram from './Histogram';
-// eslint-disable-next-line
-import Deposits from './_Deposits';
-import { mainListItems, secondaryListItems } from './listItems';
+import About from './About';
 import Data from './Data';
-
-// import data from '../co2_demo_json.json';
-import RadioButtonsGroup from './radioButtons';
-
-// const json_data = Object.values(data);
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Imrich Kascak
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import Histogram from './Histogram';
+import HistogramType from './HistogramType';
+import { mainListItems, secondaryListItems } from './listItems';
 
 const drawerWidth = 240;
 
@@ -124,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
     height: 340,
   },
   histogramHieght: {
-    height: 500,
+    height: 450,
   },
 }));
 
@@ -139,6 +117,18 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const histogramHeightPaper = clsx(classes.paper, classes.histogramHieght);
+
+  const [histogramType, setHistogramType] = React.useState('total');
+  const handleTypeChange = histogramType => {
+    setHistogramType(histogramType);
+  };
+
+  // TODO: show About Page from Drawer
+  // eslint-disable-next-line
+  const [showAbout, setShowAbout] = React.useState(false);
+  // const handleShowAbout = showAbout => {
+  //   setShowAbout(!showAbout);
+  // };
 
   return (
     <div className={classes.root}>
@@ -185,12 +175,27 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+          
+          {showAbout ?
+          <Grid container spacing={3}>
+            {/* About */}
+            <Grid item xs={12} md={12} lg={12}>
+              <Paper className={classes.paper}>
+                <About />
+              </Paper>
+            </Grid>
+          </Grid> : null
+          }
+
+          {!showAbout ?
           <Grid container spacing={3}>
 
-            {/* Radio Buttons */}
+            {/* Type of Histogram */}
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={fixedHeightPaper}>
-                <RadioButtonsGroup />
+                <HistogramType 
+                  value={histogramType}
+                  onTypeChange={handleTypeChange}/>
               </Paper>
             </Grid>
 
@@ -204,14 +209,12 @@ export default function Dashboard() {
             {/* Histogram */}
             <Grid item xs={12} md={12} lg={12}>
               <Paper className={histogramHeightPaper}>
-                <Histogram />
+                <Histogram 
+                  type={histogramType} />
               </Paper>
             </Grid>
 
-          </Grid>
-          {/* <Box pt={4}>
-            <Copyright />
-          </Box> */}
+          </Grid> : null}
         </Container>
       </main>
     </div>
