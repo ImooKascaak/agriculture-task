@@ -104,6 +104,10 @@ const useStyles = makeStyles((theme) => ({
   histogramHieght: {
     height: 450,
   },
+  histogramTypeClass: {
+    display: 'flex',
+    alignItems: 'center',
+  },
 }));
 
 export default function Dashboard() {
@@ -117,6 +121,7 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const histogramHeightPaper = clsx(classes.paper, classes.histogramHieght);
+  const histogramTypePaper = clsx(classes.paper, classes.fixedHeight, classes.histogramTypeClass);
 
   const [histogramType, setHistogramType] = React.useState('total');
   const handleTypeChange = histogramType => {
@@ -192,7 +197,7 @@ export default function Dashboard() {
 
             {/* Type of Histogram */}
             <Grid item xs={12} md={4} lg={4}>
-              <Paper className={fixedHeightPaper}>
+              <Paper className={histogramTypePaper}>
                 <HistogramType 
                   value={histogramType}
                   onTypeChange={handleTypeChange}/>

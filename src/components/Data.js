@@ -8,7 +8,10 @@ import React from 'react';
 import data from '../co2_demo_json.json';
 import Title from './Title';
 
-// Generate data to correct format
+/**
+ * Generate data to correct format
+ * @param  {any} data input data
+ */
 function createData(data) {
   data.map((row, index) => row['id'] = index);
   return data;

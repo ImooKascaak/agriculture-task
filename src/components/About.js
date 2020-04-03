@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
+// TODO
 export default function About() {
   const classes = useStyles();
   return (
