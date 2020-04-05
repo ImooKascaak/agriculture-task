@@ -1,46 +1,46 @@
-import AppBar from '@material-ui/core/AppBar';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import MenuIcon from '@material-ui/icons/Menu';
-import clsx from 'clsx';
-import React from 'react';
+import AppBar from "@material-ui/core/AppBar";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import List from "@material-ui/core/List";
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import MenuIcon from "@material-ui/icons/Menu";
+import clsx from "clsx";
+import React from "react";
 
-import About from './About';
-import Data from './Data';
-import Histogram from './Histogram';
-import HistogramType from './HistogramType';
-import { mainListItems, secondaryListItems } from './listItems';
+import About from "./About";
+import Data from "./Data";
+import Histogram from "./Histogram";
+import HistogramType from "./HistogramType";
+import { mainListItems, secondaryListItems } from "./listItems";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
   },
   toolbarIcon: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: "0 8px",
     ...theme.mixins.toolbar,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
+    transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
+    transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -57,36 +57,36 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 36,
   },
   menuButtonHidden: {
-    display: 'none',
+    display: "none",
   },
   title: {
     flexGrow: 1,
   },
   drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
+    position: "relative",
+    whiteSpace: "nowrap",
     width: drawerWidth,
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerPaperClose: {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
+    overflowX: "hidden",
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     width: theme.spacing(7),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9),
     },
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
-    overflow: 'auto',
+    height: "100vh",
+    overflow: "auto",
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -94,9 +94,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
+    display: "flex",
+    overflow: "auto",
+    flexDirection: "column",
   },
   fixedHeight: {
     height: 340,
@@ -105,8 +105,8 @@ const useStyles = makeStyles((theme) => ({
     height: 450,
   },
   histogramTypeClass: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
 }));
 
@@ -121,10 +121,14 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const histogramHeightPaper = clsx(classes.paper, classes.histogramHieght);
-  const histogramTypePaper = clsx(classes.paper, classes.fixedHeight, classes.histogramTypeClass);
+  const histogramTypePaper = clsx(
+    classes.paper,
+    classes.fixedHeight,
+    classes.histogramTypeClass
+  );
 
-  const [histogramType, setHistogramType] = React.useState('total');
-  const handleTypeChange = histogramType => {
+  const [histogramType, setHistogramType] = React.useState("total");
+  const handleTypeChange = (histogramType) => {
     setHistogramType(histogramType);
   };
 
@@ -139,18 +143,30 @@ export default function Dashboard() {
     <div className={classes.root}>
       <CssBaseline />
 
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+      <AppBar
+        position="absolute"
+        className={clsx(classes.appBar, open && classes.appBarShift)}
+      >
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+            className={clsx(
+              classes.menuButton,
+              open && classes.menuButtonHidden
+            )}
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
             Agriculture task
           </Typography>
           <IconButton color="inherit">
@@ -180,46 +196,44 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          
-          {showAbout ?
-          <Grid container spacing={3}>
-            {/* About */}
-            <Grid item xs={12} md={12} lg={12}>
-              <Paper className={classes.paper}>
-                <About />
-              </Paper>
+          {showAbout ? (
+            <Grid container spacing={3}>
+              {/* About */}
+              <Grid item xs={12} md={12} lg={12}>
+                <Paper className={classes.paper}>
+                  <About />
+                </Paper>
+              </Grid>
             </Grid>
-          </Grid> : null
-          }
+          ) : null}
 
-          {!showAbout ?
-          <Grid container spacing={3}>
+          {!showAbout ? (
+            <Grid container spacing={3}>
+              {/* Type of Histogram */}
+              <Grid item xs={12} md={4} lg={4}>
+                <Paper className={histogramTypePaper}>
+                  <HistogramType
+                    value={histogramType}
+                    onTypeChange={handleTypeChange}
+                  />
+                </Paper>
+              </Grid>
 
-            {/* Type of Histogram */}
-            <Grid item xs={12} md={4} lg={4}>
-              <Paper className={histogramTypePaper}>
-                <HistogramType 
-                  value={histogramType}
-                  onTypeChange={handleTypeChange}/>
-              </Paper>
+              {/* Data */}
+              <Grid item xs={12} md={8} lg={8}>
+                <Paper className={fixedHeightPaper}>
+                  <Data />
+                </Paper>
+              </Grid>
+
+              {/* Histogram */}
+              <Grid item xs={12} md={12} lg={12}>
+                <Paper className={histogramHeightPaper}>
+                  <Histogram type={histogramType} />
+                </Paper>
+              </Grid>
             </Grid>
-
-            {/* Data */}
-            <Grid item xs={12} md={8} lg={8}>
-              <Paper className={fixedHeightPaper}>
-                <Data />
-              </Paper>
-            </Grid>
-
-            {/* Histogram */}
-            <Grid item xs={12} md={12} lg={12}>
-              <Paper className={histogramHeightPaper}>
-                <Histogram 
-                  type={histogramType} />
-              </Paper>
-            </Grid>
-
-          </Grid> : null}
+          ) : null}
         </Container>
       </main>
     </div>

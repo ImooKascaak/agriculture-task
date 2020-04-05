@@ -1,19 +1,19 @@
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import React from 'react';
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import React from "react";
 
-import data from '../co2_demo_json.json';
-import Title from './Title';
+import data from "../co2_demo_json.json";
+import Title from "./Title";
 
 /**
  * Generate data to correct format
  * @param  {any} data input data
  */
 function createData(data) {
-  data.map((row, index) => row['id'] = index);
+  data.map((row, index) => (row["id"] = index));
   return data;
 }
 
